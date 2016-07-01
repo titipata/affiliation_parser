@@ -6,9 +6,9 @@ DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
 INSTITUTE = frozenset(['college', 'university', 'universitat',
     'unversiteit', 'hospital'])
 
-COUNTRY_DUBLICATE = frozenset(
+COUNTRY_DUBLICATE = (
     ('italy', 'italia'),
-    ('u.k.', '\buk\b', uk., 'united kingdom', 'england'),
+    ('u.k.', '\buk\b', 'uk.', 'united kingdom', 'england'),
     ('u.s.a', 'u. s. a.', 'united states', 'united states of america')
 )
 
@@ -22,7 +22,7 @@ COUNTRY_DUBLICATE = [
       'country': 'Japan'},
      {'keywords': ['boston'],
      'states': 'Massachusetts',
-     'country': 'United States'}
+     'country': 'United States'},
      {'keywords': ['f.r.g.'],
      'state': '',
      'country': 'Germany'}

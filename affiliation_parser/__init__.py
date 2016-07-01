@@ -1,1 +1,1 @@
-from parse import parse_affil
+from .parse import parse_affil
