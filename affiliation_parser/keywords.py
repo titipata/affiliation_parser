@@ -4,7 +4,7 @@ DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
     'institute', 'academic'])
 
 INSTITUTE = frozenset(['college', 'university', 'universitat',
-    'unversiteit', 'hospital'])
+    'unversiteit', 'hospital', "ha'pital"])
 
 COUNTRY_DUBLICATE = (
     ('italy', 'italia'),
