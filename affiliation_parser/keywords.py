@@ -1,10 +1,12 @@
 # keyword list
 
 DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
-    'institute', 'academic'])
+    'institute', 'academic', 'department'])
 
 INSTITUTE = frozenset(['college', 'university', 'universitat',
-    'unversiteit', 'hospital', "ha'pital"])
+    'unversiteit', 'universita', 'universidad', 'hospital',
+    "ha'pital", 'istituti', 'medical center', ' pharma',
+    'riuniti', 'clinic'])
 
 COUNTRY_DUBLICATE = (
     ('italy', 'italia'),
