@@ -2,6 +2,23 @@ import re
 from unidecode import unidecode
 from .keywords import *
 
+def find_country(location):
+    """
+    Find country from string
+    """
+    location_lower = location.lower()
+    for country in COUNTRY:
+        for c in country:
+            if c in location_lower:
+                return country[0]
+    return ''
+
+def check_usa(affil_text):
+    for state in STATES:
+        if state in location:
+            return 'united states of america'
+    return ''
+
 def parse_location(location):
     """
     Parse location to zipcode and location
@@ -14,7 +31,9 @@ def parse_location(location):
         zip_code_group = ''.join(zip_code_group)
     location = re.sub(zip_code_group, '', location)
     location = re.sub('\.', '', location).strip()
+    country = find_country(location)
     dict_location = {'location': location,
+                     'country': country,
                      'zipcode': zip_code_group}
     return dict_location
 
@@ -41,7 +60,10 @@ def parse_affil(affil_text):
                     departments.append(affil_list[i])
         department = ', '.join(departments)
     dict_location = parse_location(location)
-    dict_out = {'department': department,
+    dict_out = {'full_text': affil_text,
+                'department': department,
                 'institution': affil}
     dict_out.update(dict_location)
+    if dict_out['country'] == '':
+        dict_out['country'] = check_usa(affil_text)
     return dict_out
