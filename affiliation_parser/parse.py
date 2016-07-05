@@ -14,8 +14,11 @@ def find_country(location):
     return ''
 
 def check_usa(affil_text):
+    """
+    Check if any states string from USA. If so, it will return country string
+    """
     for state in STATES:
-        if state in location:
+        if state in affil_text:
             return 'united states of america'
     return ''
 

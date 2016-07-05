@@ -6,7 +6,8 @@ DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
 INSTITUTE = frozenset(['college', 'university', 'universitat',
     'unversiteit', 'universita', 'universidad', 'hospital',
     "ha'pital", 'istituti', 'medical center', ' pharma',
-    'riuniti', 'clinic', 'school of ', 'karolinska sjukhuset'])
+    'riuniti', 'clinic', 'school of ', 'karolinska sjukhuset',
+    'national institutes of health'])
 
 COUNTRY = (
     ('italy', 'italia'),
