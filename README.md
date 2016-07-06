@@ -10,6 +10,6 @@ affiliation, city and country from affiliation text.
 ## Example
 
 ```python
-import affiliation_parser as parse
-parse.parse_affil('Diabetes Research Unit, University of Wales College of Medicine, Cardiff, U.K.')
+from affiliation_parser import parse_affil
+parse_affil('Diabetes Research Unit, University of Wales College of Medicine, Cardiff, U.K.')
 ```

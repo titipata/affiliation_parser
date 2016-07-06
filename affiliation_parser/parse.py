@@ -37,6 +37,8 @@ def parse_email(affil_text):
     match = re.search(r'[\w\.-]+@[\w\.-]+', affil_text)
     if match is not None:
         email = match.group()
+        if email[-1] == '.':
+            email = email[:-1]
     else:
         email = ''
     return email
@@ -65,6 +67,8 @@ def parse_affil(affil_text):
     """
     affil_text = unidecode(affil_text)
     affil_text = clean_text(affil_text)
+    email = parse_email(affil_text)
+    affil_text = re.sub(email, '', affil_text)
     affil_list = affil_text.split(', ')
     affil = ''
     department = ''
@@ -82,9 +86,7 @@ def parse_affil(affil_text):
                 if dep in a.lower():
                     departments.append(affil_list[i])
         department = ', '.join(departments)
-    email = parse_email(affil_text)
-    affil_text = re.sub(email, '', affil_text)
-    dict_location = parse_location(affil + ' ' + location)
+    dict_location = parse_location(location)
     dict_out = {'full_text': affil_text,
                 'department': department,
                 'institution': affil,

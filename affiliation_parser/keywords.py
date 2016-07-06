@@ -25,7 +25,7 @@ COUNTRY = (
     ('korea', 'seoul'),
     ('russia', 'moscow'),
     ('austria', 'linz'),
-    ('israel', 'jerusalem'),
+    ('israel', 'jerusalem', 'haifa'),
     ('norway', 'oslo'),
     ('finland', 'helsinki'),
     ('south africa', 'johannesburg'),
@@ -33,7 +33,11 @@ COUNTRY = (
     ('canada', 'vancouver'),
     ('denmark', 'copenhagen'),
     ('china', 'china'),
-    ('egypt', 'cairo')
+    ('egypt', 'cairo'),
+    ('poland', 'gdansk'),
+    ('turkey', 'istanbul'),
+    ('netherlands', 'utrecht'),
+    ('belgium', 'belgium')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
