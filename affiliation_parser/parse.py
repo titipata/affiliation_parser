@@ -2,6 +2,16 @@ import re
 from unidecode import unidecode
 from .keywords import *
 
+def clean_text(affil_text):
+    """
+    Given affiliation text with abbreviation, clean that text
+    """
+    affil_text = re.sub('Dept. ', 'Department ', affil_text)
+    affil_text = re.sub('Surg. ', 'Sugery ', affil_text)
+    affil_text = re.sub('Univ. ', 'University ', affil_text)
+    return affil_text
+
+
 def find_country(location):
     """
     Find country from string
@@ -21,6 +31,15 @@ def check_usa(affil_text):
         if state in affil_text:
             return 'united states of america'
     return ''
+
+def parse_email(affil_text):
+    """Find email from given string"""
+    match = re.search(r'[\w\.-]+@[\w\.-]+', affil_text)
+    if match is not None:
+        email = match.group()
+    else:
+        email = ''
+    return email
 
 def parse_location(location):
     """
@@ -45,6 +64,7 @@ def parse_affil(affil_text):
     Parse affiliation string to institution and department
     """
     affil_text = unidecode(affil_text)
+    affil_text = clean_text(affil_text)
     affil_list = affil_text.split(', ')
     affil = ''
     department = ''
@@ -62,10 +82,13 @@ def parse_affil(affil_text):
                 if dep in a.lower():
                     departments.append(affil_list[i])
         department = ', '.join(departments)
-    dict_location = parse_location(location)
+    email = parse_email(affil_text)
+    affil_text = re.sub(email, '', affil_text)
+    dict_location = parse_location(affil + ' ' + location)
     dict_out = {'full_text': affil_text,
                 'department': department,
-                'institution': affil}
+                'institution': affil,
+                'email': email}
     dict_out.update(dict_location)
     if dict_out['country'] == '':
         dict_out['country'] = check_usa(affil_text)

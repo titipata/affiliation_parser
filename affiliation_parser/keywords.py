@@ -1,23 +1,39 @@
 # keyword list
 
 DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
-    'institute', 'academic', 'department'])
+    'laboratoire', 'institute', 'academic', 'department'])
 
 INSTITUTE = frozenset(['college', 'university', 'universitat',
     'unversiteit', 'universita', 'universidad', 'hospital',
-    "ha'pital", 'istituti', 'medical center', ' pharma',
+    "ha'pital", 'istituti', 'istituto', 'institut', 'medical center', ' pharma',
     'riuniti', 'clinic', 'school of ', 'karolinska sjukhuset',
-    'national institutes of health'])
+    'national institutes of health', 'cancer center', 'bioscience institute',
+    'unilever research'])
 
 COUNTRY = (
     ('italy', 'italia'),
-    ('united kingdom', 'u.k.', '\buk\b', 'uk.', 'england'),
+    ('united kingdom', 'u.k.', '\buk\b', 'uk.', 'england', ' uk', 'liverpool'),
     ('united states of america', 'u.s.a', 'u. s. a.', 'united states', 'massachusetts', 'boston'),
-    ('germany', 'frg', 'brd', 'f.r.g.', 'deutschland'),
-    ('japan', 'keio University', 'jikei university', 'shiga university', 'tokyo', 'osaka'),
+    ('germany', 'frg', 'brd', 'f.r.g.', 'deutschland', 'engelskirchen', 'berlin',
+     'hannover'),
+    ('japan', 'keio University', 'jikei university', 'shiga university', 'jikei university',
+     'niigata university', 'sendai city', 'shiba', 'asahikawa',
+     'tokyo', 'yokohama', 'osaka', 'nagoya', 'sapporo', 'kobe', 'kyoto',
+     'fukuoka', 'kawasaki', 'saitama', 'hiroshima', 'sendai', 'kitakyushu',
+     'chiba', 'sakai', 'hamamatsu', 'niigata', 'shizuoka', 'okayama', 'asahikawa',
+     'yamaguchi'),
     ('korea', 'seoul'),
     ('russia', 'moscow'),
-    ('austria', 'linz')
+    ('austria', 'linz'),
+    ('israel', 'jerusalem'),
+    ('norway', 'oslo'),
+    ('finland', 'helsinki'),
+    ('south africa', 'johannesburg'),
+    ('france', 'paris', 'marseille'),
+    ('canada', 'vancouver'),
+    ('denmark', 'copenhagen'),
+    ('china', 'china'),
+    ('egypt', 'cairo')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
@@ -31,7 +47,7 @@ STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
     'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
     'Washington', 'West Virginia', 'Wisconsin', 'Wyoming', 'Washington DC',
     'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI',
-    'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI',
+    ' ID', ' IL', ' IN', ' IA', ' KS', ' KY', ' LA', ' ME', ' MD', ' MA', ' MI',
     'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC',
     'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT',
     'VT', 'VA', 'WA', 'WV', 'WI', 'WY', 'DC'])
