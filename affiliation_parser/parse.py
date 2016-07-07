@@ -80,17 +80,27 @@ def parse_affil(affil_text):
     affil_list = affil_text.split(', ')
     affil = list()
     department = ''
-    location = ''
+    location = list()
     for i, a in enumerate(affil_list):
         for ins in INSTITUTE:
             if ins in a.lower():
                 if not a in affil:
                     affil.append(a)
-                department = ', '.join(affil_list[:i])
-                location = ', '.join(affil_list[i+1::])
+                location = affil_list[i+1::]
+
+    # remove unwanted from list
+    for i, a in enumerate(affil):
+        for rm in REMOVE_INSTITUE:
+            if rm in a.lower() and (not 'university' in a.lower()):
+                affil.pop(i)
+    for i, l in enumerate(location):
+        for rm in DEPARMENT:
+            if rm in l.lower():
+                location.pop(i)
     affil = ', '.join(affil)
-    departments = list()
+    location = ', '.join(location)
     if department == '':
+        departments = list()
         for i, a in enumerate(affil_list):
             for dep in DEPARMENT:
                 if dep in a.lower():
