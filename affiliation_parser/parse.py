@@ -99,6 +99,9 @@ def parse_affil(affil_text):
                 location.pop(i)
     affil = ', '.join(affil)
     location = ', '.join(location)
+    if location == '':
+        location = affil_text.split(', ')[-1]
+
     if department == '':
         departments = list()
         for i, a in enumerate(affil_list):

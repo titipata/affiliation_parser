@@ -19,7 +19,7 @@ INSTITUTE = frozenset(['college', 'university', 'universitat',
     'national chemical laboratory', ' national laboratory', 'department of research and development',
     'academy of sciences', 'centre chirurgical de la porte', 'international centre of ',
     'lawrence berkeley laboratory', 'albert einstein college', 'gedeon richter ltd',
-    ' nih'])
+    ' nih', 'ufrgs', 'national research centre', ' co.', ' ltd.', 'research limited'])
 
 REMOVE_INSTITUE = frozenset(['institute for', 'pharmacology', 'college of ',
     'institute of zoology', 'institute of population'])
@@ -27,9 +27,9 @@ REMOVE_INSTITUE = frozenset(['institute for', 'pharmacology', 'college of ',
 COUNTRY = (
     ('italy', 'italia', 'torino', 'turin'),
     ('united kingdom', 'u.k.', '\buk\b', 'uk.', 'england', ' uk', 'liverpool',
-     'london', 'crumpsall'),
+     'london', 'crumpsall', 'leicester', 'manchester', 'cardiff', 'salford'),
     ('united states of america', 'u.s.a', 'u. s. a.', 'united states', 'massachusetts',
-     'boston', 'howard university'),
+     'boston', 'howard university', 'torrance', 'san francisco'),
     ('germany', 'frg', 'brd', 'f.r.g.', 'deutschland', 'engelskirchen', 'berlin',
      'hannover', 'marburg', 'mainz', 'leipzig', 'frankfurt'),
     ('japan', 'keio University', 'jikei university', 'shiga university', 'jikei university',
@@ -41,7 +41,7 @@ COUNTRY = (
      'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio', 'kobe University'),
     ('korea', 'seoul'),
     ('russia', 'moscow'),
-    ('austria', 'linz', ' wien', ' graz'),
+    ('austria', 'linz', 'wien', ' graz'),
     ('israel', 'jerusalem', 'haifa', 'tel aviv'),
     ('norway', ' oslo'),
     ('finland', 'helsinki'),
@@ -54,10 +54,10 @@ COUNTRY = (
     ('egypt', 'cairo'),
     ('poland', 'gdansk', 'krakow'),
     ('turkey', 'istanbul'),
-    ('netherlands', 'utrecht', 'nijmegen'),
-    ('belgium', 'belgium'),
+    ('netherlands', 'utrecht', 'nijmegen', 'amsterdam'),
+    ('belgium', 'belgique', ' namur'),
     ('sweden', 'karlstad', 'uppsala'),
-    ('australia', ' perth'),
+    ('australia', ' perth', 'queensland', 'canberra'),
     ('south africa', 'johannesburg', 'onderstepoort', 'pretoria'),
     ('hungary', 'ungarn'),
     ('belgium', 'bruxelles'),
@@ -65,9 +65,10 @@ COUNTRY = (
      'ludhiana', 'vellore'),
     ('ireland', 'dublin', 'belfast'),
     ('colombia', 'bogota'),
-    ('spain', ' madrid', ' toledo', ' alicante', 'zaragoza', 'saragossa', 'barcelona'),
+    ('spain', ' madrid', ' toledo', ' alicante', 'zaragoza', 'saragossa', 'barcelona',
+     'hospital vega baja', 'valencia'),
     ('greece', 'athens'),
-    ('new zealand', 'upper hutt'),
+    ('new zealand', 'upper hutt', 'auckland'),
     ('saudi arabia', 'riyadh'),
     ('nigeria', 'ibadan'),
     ('yugoslavia', 'belgrade'),
@@ -77,7 +78,10 @@ COUNTRY = (
     ('argentina', 'buenos aires'),
     ('tunisia', 'tunis', 'tunisie'),
     ('czech republic', ' praha', 'prague', 'czechoslovakia'),
-    ('hungary', 'budapest')
+    ('hungary', 'budapest'),
+    ('zimbabwe', 'bulawayo'),
+    ('malaysia', 'kelantan'),
+    ('vietnam', 'hanoi')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
@@ -90,12 +94,11 @@ STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
     'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
     'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
     'Washington', 'West Virginia', 'Wisconsin', 'Wyoming', 'Washington DC',
-    ' AL', ' AK', ' AZ', ' AR', ' CA', ' CO', ' CT', ' DE', ' FL', ' GA', ' HI',
+    ' AL', ' AK', ' AZ', ' AR', ' CA', ' CO', ' CT', ' DE', ' FL', ' GA ', ' GA,', ' HI',
     ' ID', ' IL', ' IN', ' IA', ' KS', ' KY', ' LA', ' ME', ' MD', ' MA,', ' MA ', ' MI',
     ' MN', ' MS', ' MO', ' MT', ' NE', ' NV', ' NH', ' NJ', ' NM', ' NY', ' NC',
     ' ND', ' OH', ' OK', ' OR', ' PA', ' RI', ' SC', ' SD', ' TN', ' TX', ' UT',
-    ' VT', ' VA', ' WA', ' WV', ' WI', ' WY', ' DC',
-    'San Francisco', 'Howard University'])
+    ' VT', ' VA', ' WA', ' WV', ' WI', ' WY', ' DC'])
 
 UNIVERSITY_DUBLICATE = (
     ('university of california los angeles', 'ucla')
