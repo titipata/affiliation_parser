@@ -6,14 +6,18 @@ DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
 INSTITUTE = frozenset(['college', 'university', 'universitat',
     'unversiteit', 'universita', 'universidad', 'hospital',
     "ha'pital", 'istituti', 'istituto', 'institut', 'medical center', ' pharma',
-    'riuniti', 'clinic', 'school of ', 'karolinska sjukhuset',
+    'riuniti', 'clinic', ' school of medicine', 'karolinska sjukhuset',
     'national institutes of health', 'cancer center', 'bioscience institute',
     'national institute for', 'unilever research', 'national cardiovascular center',
     'centro operativo', 'animal research centre', 'nutrition research center',
-    'national perinatal epidemiology unit', 'tanabe seiyaku'])
+    'national perinatal epidemiology unit', 'tanabe seiyaku', 'animal health trust',
+    'marine biological laboratory', ' medical school', ' research laboratories',
+    'baxter diagnostics', 'inserm', 'sylvius laboratory', 'broad institute', ' inra',
+    'health chemical laboratory', 'genecor, inc', 'infirmary',
+    'national center for health', 'john innes centre'])
 
 COUNTRY = (
-    ('italy', 'italia'),
+    ('italy', 'italia', 'torino', 'turin'),
     ('united kingdom', 'u.k.', '\buk\b', 'uk.', 'england', ' uk', 'liverpool', 'london'),
     ('united states of america', 'u.s.a', 'u. s. a.', 'united states', 'massachusetts',
     'boston', 'howard university'),
@@ -25,7 +29,7 @@ COUNTRY = (
      'fukuoka', 'kawasaki', 'saitama', 'hiroshima', 'sendai', 'kitakyushu',
      'chiba', 'sakai', 'hamamatsu', 'niigata', 'shizuoka', 'okayama', 'asahikawa',
      'yamaguchi', 'okayama', 'gunma', 'hyogo', 'kanazawa', 'fukui', 'tajimi',
-     'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio'),
+     'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio', 'kobe University'),
     ('korea', 'seoul'),
     ('russia', 'moscow'),
     ('austria', 'linz', ' wien', ' graz'),
@@ -33,9 +37,10 @@ COUNTRY = (
     ('norway', 'oslo'),
     ('finland', 'helsinki'),
     ('south africa', 'johannesburg'),
-    ('france', 'paris', 'marseille', 'brest', 'limoges'),
+    ('france', 'paris', 'marseille', 'brest', 'limoges', 'toulouse'),
     ('canada', 'vancouver', 'ontario', 'ottawa', 'nova scotia'),
     ('denmark', 'copenhagen'),
+    ('taiwan', 'taiwan, ', 'taipei'),
     ('china', 'beijing', 'pr china', 'hangzhou', 'zhejiang'),
     ('egypt', 'cairo'),
     ('poland', 'gdansk', 'krakow'),
@@ -43,11 +48,12 @@ COUNTRY = (
     ('netherlands', 'utrecht', 'nijmegen'),
     ('belgium', 'belgium'),
     ('sweden', 'karlstad', 'uppsala'),
-    ('australia', 'australia'),
-    ('south africa', 'johannesburg', 'onderstepoort'),
+    ('australia', ' perth'),
+    ('south africa', 'johannesburg', 'onderstepoort', 'pretoria'),
     ('hungary', 'ungarn'),
     ('belgium', 'bruxelles'),
-    (' india', 'chandigarh', 'hyderabad', 'delhi'),
+    (' india', 'chandigarh', 'hyderabad', 'delhi', 'calcutta', 'wardha', ' ucms',
+     'ludhiana', ),
     ('ireland', 'dublin', 'belfast'),
     ('colombia', 'bogota'),
     ('spain', ' toledo'),
@@ -55,7 +61,8 @@ COUNTRY = (
     ('new zealand', 'upper hutt'),
     ('saudi arabia', 'riyadh'),
     ('nigeria', 'ibadan'),
-    ('yugoslavia', 'belgrade')
+    ('yugoslavia', 'belgrade'),
+    ('switzerland', 'basel', ' geneva')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
@@ -73,7 +80,7 @@ STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
     ' MN', ' MS', ' MO', ' MT', ' NE', ' NV', ' NH', ' NJ', ' NM', ' NY', ' NC',
     ' ND', ' OH', ' OK', ' OR', ' PA', ' RI', ' SC', ' SD', ' TN', ' TX', ' UT',
     ' VT', ' VA', ' WA', ' WV', ' WI', ' WY', ' DC',
-    'San Francisco'])
+    'San Francisco', 'Howard University'])
 
 UNIVERSITY_DUBLICATE = (
     ('university of california los angeles', 'ucla')

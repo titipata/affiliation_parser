@@ -48,6 +48,8 @@ def parse_zipcode(affil_text):
     """
     zip_code_group = ''
     zip_code = re.search('(\d{5})([-])?(\d{4})?', affil_text)
+    if zip_code is None:
+        zip_code = re.search('(\d{3})([-])?(\d{4})?', affil_text)
     if zip_code is not None:
         zip_code_group = zip_code.groups()
         zip_code_group = [p for p in zip_code_group if p is not None]
@@ -82,7 +84,8 @@ def parse_affil(affil_text):
     for i, a in enumerate(affil_list):
         for ins in INSTITUTE:
             if ins in a.lower():
-                affil.append(a)
+                if not a in affil:
+                    affil.append(a)
                 department = ', '.join(affil_list[:i])
                 location = ', '.join(affil_list[i+1::])
     affil = ', '.join(affil)
