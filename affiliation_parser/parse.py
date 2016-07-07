@@ -11,7 +11,6 @@ def clean_text(affil_text):
     affil_text = re.sub('Univ. ', 'University ', affil_text)
     return affil_text
 
-
 def find_country(location):
     """
     Find country from string
@@ -43,22 +42,26 @@ def parse_email(affil_text):
         email = ''
     return email
 
-def parse_location(location):
+def parse_zipcode(affil_text):
     """
-    Parse location to zipcode and location
+    Parse zip code from given affiliation text
     """
     zip_code_group = ''
-    zip_code = re.search('(\d{5})([-])?(\d{4})?', location)
+    zip_code = re.search('(\d{5})([-])?(\d{4})?', affil_text)
     if zip_code is not None:
         zip_code_group = zip_code.groups()
         zip_code_group = [p for p in zip_code_group if p is not None]
         zip_code_group = ''.join(zip_code_group)
-    location = re.sub(zip_code_group, '', location)
+    return zip_code_group
+
+def parse_location(location):
+    """
+    Parse location and country from affiliation string
+    """
     location = re.sub('\.', '', location).strip()
     country = find_country(location)
     dict_location = {'location': location,
-                     'country': country,
-                     'zipcode': zip_code_group}
+                     'country': country}
     return dict_location
 
 def parse_affil(affil_text):
@@ -68,17 +71,21 @@ def parse_affil(affil_text):
     affil_text = unidecode(affil_text)
     affil_text = clean_text(affil_text)
     email = parse_email(affil_text)
+    zip_code = parse_zipcode(affil_text)
     affil_text = re.sub(email, '', affil_text)
+    affil_text = re.sub(zip_code, '', affil_text)
+
     affil_list = affil_text.split(', ')
-    affil = ''
+    affil = list()
     department = ''
     location = ''
     for i, a in enumerate(affil_list):
         for ins in INSTITUTE:
             if ins in a.lower():
-                affil = a
+                affil.append(a)
                 department = ', '.join(affil_list[:i])
                 location = ', '.join(affil_list[i+1::])
+    affil = ', '.join(affil)
     departments = list()
     if department == '':
         for i, a in enumerate(affil_list):
@@ -90,7 +97,8 @@ def parse_affil(affil_text):
     dict_out = {'full_text': affil_text,
                 'department': department,
                 'institution': affil,
-                'email': email}
+                'email': email,
+                'zipcode': zip_code}
     dict_out.update(dict_location)
     if dict_out['country'] == '':
         dict_out['country'] = check_usa(affil_text)
