@@ -2,7 +2,7 @@
 
 (work in progress)
 
-Simple parser for MEDLINE and Pubmed Open-Access affiliation string.
+Fast and simple parser for MEDLINE and Pubmed Open-Access affiliation string.
 We can parse multiple fields from the affiliation string including department, affiliation, location, country, email and zip code from affiliation text.
 
 
@@ -16,11 +16,11 @@ parse_affil("Department of Health Science, Kochi Women's University, Kochi 780-8
 output is a dictionary
 
 ```python
-{'country': 'japan',
+{'full_text': "Department of Health Science, Kochi Women's University, Kochi , Japan. ",
  'department': 'Department of Health Science',
- 'email': 'watanabe@cc.kochi-wu.ac.jp',
- 'full_text': "Department of Health Science, Kochi Women's University, Kochi , Japan. ",
  'institution': "Kochi Women's University",
  'location': 'Kochi , Japan',
- 'zipcode': '780-8515'}
+ 'country': 'japan',
+ 'zipcode': '780-8515',
+ 'email': 'watanabe@cc.kochi-wu.ac.jp'}
 ```

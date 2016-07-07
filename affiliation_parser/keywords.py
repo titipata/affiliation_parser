@@ -47,7 +47,7 @@ COUNTRY = (
     ('finland', 'helsinki'),
     ('south africa', 'johannesburg'),
     ('france', 'paris', 'marseille', 'brest', 'limoges', 'toulouse'),
-    ('canada', 'vancouver', 'ontario', 'ottawa', 'nova scotia'),
+    ('canada', 'vancouver', 'ontario', 'ottawa', 'nova scotia', 'calgary', 'alberta'),
     ('denmark', 'copenhagen'),
     ('taiwan', 'taiwan, ', 'taipei'),
     ('china', 'beijing', 'pr china', 'hangzhou', 'zhejiang', 'shenyang'),
