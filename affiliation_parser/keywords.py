@@ -2,14 +2,15 @@
 
 DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
     'laboratoire', 'institute', 'academic', 'department', 'division',
-    'faculty of ', 'genomics center'])
+    'faculty of ', 'genomics center', 'research station'])
 
-INSTITUTE = frozenset(['college', 'university', 'universitat',
+INSTITUTE = frozenset(['college', 'university', 'universitat', 'universite',
     'unversiteit', 'universita', 'universidad', 'hospital',
-    "ha'pital", 'istituti', 'istituto', 'institut', 'medical center', ' pharma',
+    "ha'pital", 'istituti', 'istituto', 'institucio', 'institut', 'medical center', ' pharma',
     'riuniti', 'clinic', ' school of medicine', 'karolinska sjukhuset',
     'national institutes of health', 'cancer center', 'bioscience institute',
-    'national institute for', 'national center for ', 'unilever research', 'national cardiovascular center',
+    'national institute for', 'national center for ', 'national centre for',
+    'unilever research', 'national cardiovascular center',
     'centro operativo', 'animal research centre', 'nutrition research center',
     'national perinatal epidemiology unit', 'tanabe seiyaku', 'animal health trust',
     'marine biological laboratory', ' medical school', ' research laboratories',
@@ -22,11 +23,17 @@ INSTITUTE = frozenset(['college', 'university', 'universitat',
     'lawrence berkeley laboratory', 'albert einstein college', 'gedeon richter ltd',
     ' nih', 'ufrgs', 'national research centre', ' co.', ' ltd.', 'research limited',
     'clinic college of', 'center for', 'research center', 'research centre',
-    'schon klinik'])
+    'schon klinik', 'innovaderm research', 'novartis', 'aquarium', 'foundation',
+    'permanente', 'healthcare system', 'national oncology institute',
+    'global research and development', 'health service', 'national primate research center',
+    'faculdade de ', ' urmc', ' pllc', ' pgimer', 'center for disease control',
+    'london school of ', 'ggze', 'health service executive', 'council for scientific',
+    'cnrs'])
 
-REMOVE_INSTITUE = frozenset(['institute for', 'pharmacology', 'college of ',
+REMOVE_INSTITUE = frozenset(['institute for', 'pharmacology', 'college of pharmacy',
     'institute of zoology', 'institute of population', 'institute of bioinformatics',
-    'section for ', 'instituto de '])
+    'institute of plant',  'section for ', 'instituto de ', 'institute of clinical medicine',
+    'department of clinical'])
 
 COUNTRY = (
     ('italy', 'italia', 'torino', 'turin'),
@@ -45,7 +52,7 @@ COUNTRY = (
      'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio', 'kobe University'),
     ('korea', 'seoul'),
     ('russia', 'moscow'),
-    ('austria', 'linz', 'wien', ' graz'),
+    ('austria', 'linz', 'wien', ' graz', 'innsbruck'),
     ('israel', 'jerusalem', 'haifa', 'tel aviv'),
     ('norway', ' oslo'),
     ('finland', 'helsinki'),
@@ -54,14 +61,14 @@ COUNTRY = (
     ('canada', 'vancouver', 'ontario', 'ottawa', 'nova scotia', 'calgary', 'alberta'),
     ('denmark', 'copenhagen'),
     ('taiwan', 'taiwan, ', 'taipei'),
-    ('china', 'beijing', 'pr china', 'hangzhou', 'zhejiang', 'shenyang'),
+    ('china', 'beijing', 'pr china', 'hangzhou', 'zhejiang', 'shenyang', 'shanghai'),
     ('egypt', 'cairo'),
     ('poland', 'gdansk', 'krakow'),
     ('turkey', 'istanbul'),
-    ('netherlands', 'utrecht', 'nijmegen', 'amsterdam'),
+    ('netherlands', 'utrecht', 'nijmegen', 'amsterdam', 'leiden'),
     ('belgium', 'belgique', ' namur'),
-    ('sweden', 'karlstad', 'uppsala'),
-    ('australia', ' perth', 'queensland', 'canberra'),
+    ('sweden', 'karlstad', 'uppsala', 'stockholm'),
+    ('australia', ' perth', 'queensland', 'canberra', 'melbourne'),
     ('south africa', 'johannesburg', 'onderstepoort', 'pretoria'),
     ('hungary', 'ungarn'),
     ('belgium', 'bruxelles'),
@@ -86,7 +93,9 @@ COUNTRY = (
     ('zimbabwe', 'bulawayo'),
     ('malaysia', 'kelantan'),
     ('vietnam', 'hanoi'),
-    ('hong kong', 'hong kong')
+    ('hong kong', 'hong kong'),
+    (' iran', 'tehran', 'shiraz'),
+    ('brazil', 'brasil', 'rio de janeiro', 'cordeiropolis')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',

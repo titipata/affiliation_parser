@@ -9,6 +9,7 @@ def clean_text(affil_text):
     affil_text = re.sub('Dept. ', 'Department ', affil_text)
     affil_text = re.sub('Surg. ', 'Sugery ', affil_text)
     affil_text = re.sub('Univ. ', 'University ', affil_text)
+    affil_text = re.sub(';', '', affil_text)
     return affil_text
 
 def find_country(location):
@@ -109,9 +110,9 @@ def parse_affil(affil_text):
     department = ', '.join(departments)
 
     dict_location = parse_location(location)
-    dict_out = {'full_text': affil_text,
-                'department': department,
-                'institution': affil,
+    dict_out = {'full_text': affil_text.strip(),
+                'department': department.strip(),
+                'institution': affil.strip(),
                 'email': email,
                 'zipcode': zip_code}
     dict_out.update(dict_location)
