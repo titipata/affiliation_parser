@@ -1,7 +1,8 @@
 # keyword list
 
 DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
-    'laboratoire', 'institute', 'academic', 'department', 'division'])
+    'laboratoire', 'institute', 'academic', 'department', 'division',
+    'faculty of ', 'genomics center'])
 
 INSTITUTE = frozenset(['college', 'university', 'universitat',
     'unversiteit', 'universita', 'universidad', 'hospital',
@@ -19,10 +20,13 @@ INSTITUTE = frozenset(['college', 'university', 'universitat',
     'national chemical laboratory', ' national laboratory', 'department of research and development',
     'academy of sciences', 'centre chirurgical de la porte', 'international centre of ',
     'lawrence berkeley laboratory', 'albert einstein college', 'gedeon richter ltd',
-    ' nih', 'ufrgs', 'national research centre', ' co.', ' ltd.', 'research limited'])
+    ' nih', 'ufrgs', 'national research centre', ' co.', ' ltd.', 'research limited',
+    'clinic college of', 'center for', 'research center', 'research centre',
+    'schon klinik'])
 
 REMOVE_INSTITUE = frozenset(['institute for', 'pharmacology', 'college of ',
-    'institute of zoology', 'institute of population'])
+    'institute of zoology', 'institute of population', 'institute of bioinformatics',
+    'section for ', 'instituto de '])
 
 COUNTRY = (
     ('italy', 'italia', 'torino', 'turin'),
@@ -81,7 +85,8 @@ COUNTRY = (
     ('hungary', 'budapest'),
     ('zimbabwe', 'bulawayo'),
     ('malaysia', 'kelantan'),
-    ('vietnam', 'hanoi')
+    ('vietnam', 'hanoi'),
+    ('hong kong', 'hong kong')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
