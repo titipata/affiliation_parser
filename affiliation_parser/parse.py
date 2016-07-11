@@ -1,4 +1,5 @@
 import re
+import numpy as np
 from unidecode import unidecode
 from .keywords import *
 
@@ -90,14 +91,20 @@ def parse_affil(affil_text):
                 location = affil_list[i+1::]
 
     # remove unwanted from affliation list and location list
+    pop_index = list()
     for i, a in enumerate(affil):
         for rm in REMOVE_INSTITUE:
-            if rm in a.lower() and (not 'university' in a.lower()) and len(affil) > 1:
-                affil.pop(i)
+            if rm in a.lower() and (not 'university' in a.lower()):
+                pop_index.append(i)
+    affil = np.delete(affil, list(set(pop_index))).tolist()
+
+    pop_index = list()
     for i, l in enumerate(location):
         for rm in DEPARMENT:
-            if rm in l.lower() and len(location) > 1:
-                location.pop(i)
+            if rm in l.lower():
+                pop_index.append(i)
+    location = np.delete(location, list(set(pop_index))).tolist()
+
     affil = ', '.join(affil)
     location = ', '.join(location)
     if location == '':
