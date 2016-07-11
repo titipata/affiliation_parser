@@ -92,11 +92,11 @@ def parse_affil(affil_text):
     # remove unwanted from affliation list and location list
     for i, a in enumerate(affil):
         for rm in REMOVE_INSTITUE:
-            if rm in a.lower() and (not 'university' in a.lower()):
+            if rm in a.lower() and (not 'university' in a.lower()) and len(affil) > 1:
                 affil.pop(i)
     for i, l in enumerate(location):
         for rm in DEPARMENT:
-            if rm in l.lower():
+            if rm in l.lower() and len(location) > 1:
                 location.pop(i)
     affil = ', '.join(affil)
     location = ', '.join(location)

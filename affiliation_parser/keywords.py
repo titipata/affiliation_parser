@@ -95,7 +95,8 @@ COUNTRY = (
     ('vietnam', 'hanoi'),
     ('hong kong', 'hong kong'),
     (' iran', 'tehran', 'shiraz'),
-    ('brazil', 'brasil', 'rio de janeiro', 'cordeiropolis')
+    ('brazil', 'brasil', 'rio de janeiro', 'cordeiropolis'),
+    ('mexico', 'maxico city')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
