@@ -10,8 +10,13 @@ def clean_text(affil_text):
     affil_text = re.sub('Dept. ', 'Department ', affil_text)
     affil_text = re.sub('Surg. ', 'Sugery ', affil_text)
     affil_text = re.sub('Univ. ', 'University ', affil_text)
+    affil_text = re.sub('2 ', ' ', affil_text)
+    affil_text = re.sub('2. ', ' ', affil_text)
+    affil_text = re.sub('\*', ' ', affil_text)
     affil_text = re.sub(';', '', affil_text)
-    return affil_text
+    affil_text = re.sub('E-mail:', '', affil_text)
+    affil_text = re.sub('email:', '', affil_text)
+    return affil_text.strip()
 
 def find_country(location):
     """
@@ -109,6 +114,7 @@ def parse_affil(affil_text):
     location = ', '.join(location)
     if location == '':
         location = affil_text.split(', ')[-1]
+    location = re.sub(r'\([^)]*\)', '', location).strip()
 
     for i, a in enumerate(affil_list):
         for dep in DEPARMENT:
