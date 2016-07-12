@@ -16,6 +16,8 @@ def clean_text(affil_text):
     affil_text = re.sub(';', '', affil_text)
     affil_text = re.sub('E-mail:', '', affil_text)
     affil_text = re.sub('email:', '', affil_text)
+    affil_text = re.sub('\t', ' ', affil_text)
+    affil_text = re.sub('P.O. Box', '', affil_text)
     return affil_text.strip()
 
 def find_country(location):

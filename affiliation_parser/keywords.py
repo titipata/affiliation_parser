@@ -5,7 +5,7 @@ DEPARMENT = frozenset(['laboratorio', 'laboratories', 'laboratory',
     'faculty of ', 'genomics center', 'research station'])
 
 INSTITUTE = frozenset(['college', 'university', 'universitat', 'universite',
-    'unversiteit', 'universita', 'universidad', 'universiti', 'hospital', 'unidade de',
+    'unversiteit', 'universita', 'universidad', 'universiti', 'hospital', 'hopitaux de', 'unidade de',
     "ha'pital", 'istituti', 'istituto', 'institucio', 'institut', 'medical center', ' pharma',
     'riuniti', 'clinic', ' school of medicine', 'karolinska sjukhuset',
     'national institutes of health', 'cancer center', 'bioscience institute',
@@ -14,7 +14,7 @@ INSTITUTE = frozenset(['college', 'university', 'universitat', 'universite',
     'centro operativo', 'animal research centre', 'nutrition research center',
     'national perinatal epidemiology unit', 'tanabe seiyaku', 'animal health trust',
     'marine biological laboratory', ' medical school', ' research laboratories',
-    'baxter diagnostics', 'inserm', 'sylvius laboratory', 'broad institute', ' inra',
+    'baxter diagnostics', 'inserm', 'sylvius laboratory', 'broad institute', ' inra', '/inra',
     'health chemical laboratory', 'genecor, inc', 'infirmary',
     'national center for health', 'john innes centre', 'chru de la timone',
     'chu de bordeaux', 'ecole nationale ', 'cape technologies',
@@ -37,7 +37,7 @@ INSTITUTE = frozenset(['college', 'university', 'universitat', 'universite',
     'rehabilitation institute', 'oncology center', 'cancer centre', 'virginia tech',
     'ciberesp', 'department of food', 'rothamsted research', 'evangelisches',
     'ziekenhuizen', 'academy of ', 'chinese national ', 'pathology associates',
-    'science magnet', 'ucla ', ' ucsd', 'uc berkeley', 'uc sandiego', 'trial group',
+    'science magnet', 'ucla ', ' ucsd', 'uc berkeley', 'uc san diego', 'trial group',
     'acdi', 'specialty center', 'agemetra', 'national research institute', 'diabetes center',
     'rothamsted research', 'affichem', 'disease association', 'ministry of health',
     'incorporation', 'medical research council', 'develogen', 'innovation campus',
@@ -50,13 +50,19 @@ INSTITUTE = frozenset(['college', 'university', 'universitat', 'universite',
     'research unit', 'ecogen', 'international corporation', 'tourism agency',
     'naval research laboratory', 'infection research', 'health solutions',
     'us military', 'us department', 'human genome center', 'siemens', 'swiss institute',
-    'usda', 'marine science center', 'u.s. geological', 'u.s. positive',
+    'usda', 'marine science center', 'u.s. geological', 'u.s. positive', 'u.s. Department',
     'botanical center', 'municipal centre', 'municipal health', 'research council',
-    'national serology', 'national sexually', "d'aragona"])
+    'national serology', 'national sexually', "d'aragona", 'metropolitan health',
+    'rosa and company', 'laboratory of oncology', 'oncology r&d', 'assessment service',
+    'cancer registry', 'technology agency', 'district health', 'irccs', 'pharmexa',
+    'scientific service', 'limited company', 'health authority', 'biodiversity center',
+    'national park', 'corporation', 'ucl ', 'escola nacional', 'va health system',
+    'agri-food', 'agrotech', 'agroforestry', 'umr micalis', 'allan rosenfield',
+    'allan wilson', 'allen institute', 'ameripath', 'biotechnologies', 'anaerobe systems'])
 
 REMOVE_INSTITUE = frozenset(['pharmacology', 'college of pharmacy',
     'institute of zoology', 'institute of population', 'institute of bioinformatics',
-    'institute of plant',  'section for ', 'instituto de ', 'institute of clinical medicine',
+    'institute of plant',  'section for ', 'institute of clinical medicine',
     'department of clinical'])
 
 COUNTRY = (
@@ -128,7 +134,9 @@ COUNTRY = (
     ('bosnia', 'herzegovina'),
     ('albania', 'tirana'),
     ('tanzania', 'morogoro'),
-    ('sri lanka', 'sri lanka')
+    ('sri lanka', 'sri lanka'),
+    ('cyprus', 'nicosia'),
+    ('gambia', ' banjul')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
