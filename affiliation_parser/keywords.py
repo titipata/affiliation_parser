@@ -58,7 +58,8 @@ INSTITUTE = frozenset(['college', 'university', 'universitat', 'universite',
     'scientific service', 'limited company', 'health authority', 'biodiversity center',
     'national park', 'corporation', 'ucl ', 'escola nacional', 'va health system',
     'agri-food', 'agrotech', 'agroforestry', 'umr micalis', 'allan rosenfield',
-    'allan wilson', 'allen institute', 'ameripath', 'biotechnologies', 'anaerobe systems'])
+    'allan wilson', 'allen institute', 'ameripath', 'biotechnologies', 'anaerobe systems',
+    'nhs trust'])
 
 REMOVE_INSTITUE = frozenset(['pharmacology', 'college of pharmacy',
     'institute of zoology', 'institute of population', 'institute of bioinformatics',
@@ -71,7 +72,7 @@ COUNTRY = (
      'london', 'crumpsall', 'leicester', 'manchester', 'cardiff', 'salford',
      'bradford', 'oxford', 'clwyd'),
     ('united states of america', 'u.s.a', 'u. s. a.', 'united states', 'massachusetts',
-     'boston', 'howard university', 'torrance', 'san francisco', 'duarte'),
+     'boston', 'howard university', 'torrance', 'san francisco', 'duarte', 'los alamos'),
     ('germany', 'frg', 'brd', 'f.r.g.', 'deutschland', 'engelskirchen', 'berlin',
      'hannover', 'marburg', 'mainz', 'leipzig', 'frankfurt'),
     ('japan', 'keio University', 'jikei university', 'shiga university', 'jikei university',
@@ -80,7 +81,8 @@ COUNTRY = (
      'fukuoka', 'kawasaki', 'saitama', 'hiroshima', 'sendai', 'kitakyushu',
      'chiba', 'sakai', 'hamamatsu', 'niigata', 'shizuoka', 'okayama', 'asahikawa',
      'yamaguchi', 'okayama', 'gunma', 'hyogo', 'kanazawa', 'fukui', 'tajimi',
-     'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio', 'kobe University'),
+     'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio', 'kobe university',
+     'gunma', 'gifu university'),
     ('korea', 'seoul'),
     ('russia', 'moscow'),
     ('austria', 'linz', 'wien', ' graz', 'innsbruck'),

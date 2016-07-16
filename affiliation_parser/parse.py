@@ -31,10 +31,13 @@ def find_country(location):
                 return country[0]
     return ''
 
-def check_usa(affil_text):
+def check_country(affil_text):
     """
-    Check if any states string from USA. If so, it will return country string
+    Check if any states string from USA or UK
     """
+    for country in ['UK']:
+        if country in affil_text:
+            return 'united kingdom'
     for state in STATES:
         if state in affil_text:
             return 'united states of america'
@@ -132,5 +135,5 @@ def parse_affil(affil_text):
                 'zipcode': zip_code}
     dict_out.update(dict_location)
     if dict_out['country'] == '':
-        dict_out['country'] = check_usa(affil_text)
+        dict_out['country'] = check_country(affil_text) # check country
     return dict_out
