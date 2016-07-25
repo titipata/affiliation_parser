@@ -24,3 +24,11 @@ output is a dictionary
  'zipcode': '780-8515',
  'email': 'watanabe@cc.kochi-wu.ac.jp'}
 ```
+
+
+## Dependencies
+
+- [unidecode](https://pypi.python.org/pypi/Unidecode)
+- [numpy](http://www.numpy.org/)
+
+use `pip install -r requirements.txt` in order to install required packages
