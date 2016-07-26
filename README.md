@@ -32,3 +32,23 @@ output is a dictionary
 - [numpy](http://www.numpy.org/)
 
 use `pip install -r requirements.txt` in order to install required packages
+
+
+## Installation
+
+Clone the repository and install using `setup.py` or simple copy `affiliation_parser`
+folder to your workspace.
+
+```bash
+$ git clone https://github.com/titipata/affiliation_parser
+```
+
+```bash
+$ python setup.py install
+```
+
+## Example results from MEDLINE database
+
+I put some snippet on how to produce quick summarization from MEDLINE data [here](https://github.com/titipata/affiliation_parser/wiki).
+
+<img src="figures/medline_number_publications.png" width="400">

@@ -67,12 +67,13 @@ REMOVE_INSTITUE = frozenset(['pharmacology', 'college of pharmacy',
     'department of clinical'])
 
 COUNTRY = (
-    ('italy', 'italia', 'torino', 'turin', 'portici'),
+    ('italy', 'italia', 'torino', 'turin', 'portici', 'palermo'),
     ('united kingdom', 'u.k.', '\buk\b', 'uk.', 'england', ' uk', 'liverpool',
      'london', 'crumpsall', 'leicester', 'manchester', 'cardiff', 'salford',
      'bradford', 'oxford', 'clwyd'),
     ('united states of america', 'u.s.a', 'u. s. a.', 'united states', 'massachusetts',
-     'boston', 'howard university', 'torrance', 'san francisco', 'duarte', 'los alamos'),
+     'boston', 'howard university', 'torrance', 'san francisco', 'duarte', 'los alamos',
+     'houston'),
     ('germany', 'frg', 'brd', 'f.r.g.', 'deutschland', 'engelskirchen', 'berlin',
      'hannover', 'marburg', 'mainz', 'leipzig', 'frankfurt'),
     ('japan', 'keio University', 'jikei university', 'shiga university', 'jikei university',
