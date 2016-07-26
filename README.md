@@ -51,4 +51,10 @@ $ python setup.py install
 
 I put some snippet on how to produce quick summarization from MEDLINE data [here](https://github.com/titipata/affiliation_parser/wiki).
 
+**Total number of publications per country**
+
 <img src="figures/medline_number_publications.png" width="400">
+
+**Number of publications over time from selected countries**
+
+<img src="figures/medline_number_publications_year.png" width="800">
