@@ -74,8 +74,8 @@ def parse_location(location):
     """
     location = re.sub('\.', '', location).strip()
     country = find_country(location)
-    dict_location = {'location': location,
-                     'country': country}
+    dict_location = {'location': location.strip(),
+                     'country': country.strip()}
     return dict_location
 
 def parse_affil(affil_text):
