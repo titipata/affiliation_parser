@@ -3,6 +3,25 @@ import numpy as np
 from unidecode import unidecode
 from .keywords import *
 
+def replace_institution_abbr(affil_text):
+    """Replace abbreviation with full institution string"""
+    for university_list in UNIVERSITY_ABBR:
+        for university in university_list:
+            if university in affil_text:
+                affil_text = re.sub(university, university_list[0], affil_text)
+                return affil_text
+    return affil_text
+
+def append_institution_city(affil, location):
+    """Append city to university that has multiple campuses if exist"""
+    for university_list in UNIVERSITY_MULTIPLE_CAMPUS:
+        if university_list[0] in affil.lower():
+            for city in university_list[1::]:
+                if city in location.lower() and not city in affil.lower():
+                    affil = affil + ' ' + city
+                    return affil
+    return affil
+
 def clean_text(affil_text):
     """
     Given affiliation text with abbreviation, clean that text
@@ -18,6 +37,7 @@ def clean_text(affil_text):
     affil_text = re.sub('email:', '', affil_text)
     affil_text = re.sub('\t', ' ', affil_text)
     affil_text = re.sub('P.O. Box', '', affil_text)
+    affil_text = replace_institution_abbr(affil_text)
     return affil_text.strip()
 
 def find_country(location):
@@ -128,6 +148,8 @@ def parse_affil(affil_text):
     department = ', '.join(departments)
 
     dict_location = parse_location(location)
+    affil = append_institution_city(affil, dict_location['location'])
+
     dict_out = {'full_text': affil_text.strip(),
                 'department': department.strip(),
                 'institution': affil.strip(),
