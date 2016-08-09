@@ -84,7 +84,7 @@ COUNTRY = (
      'yamaguchi', 'okayama', 'gunma', 'hyogo', 'kanazawa', 'fukui', 'tajimi',
      'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio', 'kobe university',
      'gunma', 'gifu university'),
-    ('korea', 'seoul'),
+    ('south korea', 'korea', 'seoul'),
     ('russia', 'moscow'),
     ('austria', 'linz', 'wien', ' graz', 'innsbruck'),
     ('israel', 'jerusalem', 'haifa', 'tel aviv'),
@@ -133,12 +133,16 @@ COUNTRY = (
     ('romania', 'bucharest'),
     ('congo', 'democratic republic of congo'),
     ('armenia', 'yerevan'),
-    ('bosnia', 'herzegovina'),
+    ('bosnia and herzegovina', 'bosnia', 'herzegovina'),
     ('albania', 'tirana'),
     ('tanzania', 'morogoro'),
     ('sri lanka', 'sri lanka'),
     ('cyprus', 'nicosia'),
-    ('gambia', ' banjul')
+    ('gambia', ' banjul'),
+    ('lithuania', 'lietuvos'),
+    ('peru', ' lima'),
+    ('portugal', 'lisboa'),
+    ('philippines', 'manila')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
