@@ -83,7 +83,7 @@ COUNTRY = (
      'chiba', 'sakai', 'hamamatsu', 'niigata', 'shizuoka', 'okayama', 'asahikawa',
      'yamaguchi', 'okayama', 'gunma', 'hyogo', 'kanazawa', 'fukui', 'tajimi',
      'komagome', 'akita', 'suita', 'kochi', 'nara medical', 'keio', 'kobe university',
-     'gunma', 'gifu university'),
+     'gunma', 'gifu university', 'toranomon', 'bunkyo gakuin'),
     ('south korea', 'korea', 'seoul'),
     ('russia', 'moscow'),
     ('austria', 'linz', 'wien', ' graz', 'innsbruck'),
@@ -94,7 +94,7 @@ COUNTRY = (
     ('france', 'paris', 'marseille', 'brest', 'limoges', 'toulouse'),
     ('canada', 'vancouver', 'ontario', 'ottawa', 'nova scotia', 'calgary', 'alberta'),
     ('denmark', 'copenhagen'),
-    ('taiwan', 'taiwan, ', 'taipei'),
+    ('taiwan', 'taiwan, ', 'taipei', 'chi-mei medical'),
     ('china', 'beijing', 'pr china', 'hangzhou', 'zhejiang', 'shenyang', 'shanghai'),
     ('egypt', 'cairo'),
     ('poland', 'gdansk', 'krakow'),
@@ -142,7 +142,8 @@ COUNTRY = (
     ('lithuania', 'lietuvos'),
     ('peru', ' lima'),
     ('portugal', 'lisboa'),
-    ('philippines', 'manila')
+    ('philippines', 'manila'),
+    ('kuwait', 'kuwait city')
 )
 
 STATES = frozenset(['Alabama', 'Alaska', 'Arizona', 'Arkansas',
