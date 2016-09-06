@@ -182,5 +182,7 @@ UNIVERSITY_MULTIPLE_CAMPUS = (
      'irvine', 'irvine medical center', 'san francisco', 'santa barbara', 'riverside'),
     ('university of illinois urbana champaign', 'urbana champaign', 'urbana', 'champaign'),
     ('university of illinois', 'urbana champaign', 'chicago', 'springfield', 'peoria'),
-    ('university of pittsburgh', 'medical center')
+    ('university of pittsburgh', 'medical center'),
+    ('university of michigan', 'ann arbor', 'dearborn', 'health system', 'flint'),
+    ('university of minnesota', 'duluth', 'morris', 'medical Ccnter', 'rochester', 'crookston')
 )
