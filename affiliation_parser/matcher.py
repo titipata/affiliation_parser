@@ -11,40 +11,50 @@ from sklearn.externals import joblib
 from .parse import parse_affil, preprocess
 
 Affiliation = namedtuple('Affiliation', ['name', 'country'])
+REPO_DIR = os.path.join(os.path.expanduser('~'), 'affiliation_parser_data')
+DATA_DIR = os.path.join(REPO_DIR, 'data')
+MODEL_DIR = os.path.join(REPO_DIR, 'model')
 
 def download_grid():
     """Download GRID dataset from S3 (last update: September 2016)"""
-    if not os.path.isdir('data'): os.mkdir('data')
-    subprocess.call(['wget', 'https://s3-us-west-2.amazonaws.com/science-of-science-bucket/grid/grid.csv', '--directory', 'data'])
+    subprocess.call(['wget', 'https://s3-us-west-2.amazonaws.com/science-of-science-bucket/grid/grid.csv',
+                     '--directory', DATA_DIR])
 
 def train_grid():
     """Train nearest neighbor model and save to model folder"""
-    if not os.path.isdir('model'): os.mkdir('model')
-    if not os.path.isfile('data/grid.csv'): download_grid()
-    grid_dict = list(csv.DictReader(open('data/grid.csv', 'r')))
+    if not os.path.isfile(os.path.join(MODEL_DIR, 'nearest_neighbor.pkl')):
+        print("download and save model to %s" % REPO_DIR)
+        if not os.path.isdir(REPO_DIR):
+            os.mkdir(REPO_DIR)
+        if not os.path.isdir(MODEL_DIR):
+            os.mkdir(MODEL_DIR)
+        if not os.path.isdir(DATA_DIR):
+            os.mkdir(DATA_DIR)
+        if not os.path.isfile(os.path.join(DATA_DIR, 'grid.csv')):
+            download_grid()
+        grid_dict = list(csv.DictReader(open(os.path.join(DATA_DIR, 'grid.csv'), 'r')))
 
-    grid_preprocess = []
-    for g in grid_dict:
-        grid_preprocess.append(preprocess(g['Name'] + ' ' + g['Country']))
+        grid_preprocess = []
+        for g in grid_dict:
+            grid_preprocess.append(preprocess(g['Name'] + ' ' + g['Country']))
 
-    tfidf_model = TfidfVectorizer(min_df=3, max_df=0.8,
-                                  lowercase=True, norm='l2',
-                                  strip_accents='unicode',
-                                  token_pattern=r'\w{1,}', ngram_range=(1,1),
-                                  use_idf=True, smooth_idf=True, sublinear_tf=True,
-                                  stop_words='english')
+        tfidf_model = TfidfVectorizer(min_df=3, max_df=0.8,
+                                      lowercase=True, norm='l2',
+                                      strip_accents='unicode',
+                                      token_pattern=r'\w{1,}', ngram_range=(1,1),
+                                      use_idf=True, smooth_idf=True, sublinear_tf=True,
+                                      stop_words='english')
 
-    X_grid = tfidf_model.fit_transform(grid_preprocess)
-    nbrs_model  = NearestNeighbors(n_neighbors=1, algorithm='ball_tree',
-                                   metric='minkowski', n_jobs=-1).fit(X_grid)
-    joblib.dump(tfidf_model, 'model/tfidf.pkl')
-    joblib.dump(nbrs_model, 'model/nearest_neighbor.pkl')
+        X_grid = tfidf_model.fit_transform(grid_preprocess)
+        nbrs_model  = NearestNeighbors(n_neighbors=1, algorithm='ball_tree',
+                                       metric='minkowski', n_jobs=-1).fit(X_grid)
+        joblib.dump(tfidf_model, os.path.join(MODEL_DIR, 'tfidf.pkl'))
+        joblib.dump(nbrs_model, os.path.join(MODEL_DIR, 'nearest_neighbor.pkl'))
 
-
-if not os.path.isfile('model/nearest_neighbor.pkl'):
-    train_grid()
-tfidf_model = joblib.load('model/tfidf.pkl')
-nbrs_model = joblib.load('model/nearest_neighbor.pkl')
+# train nearest neighbor model for GRID dataset
+train_grid()
+tfidf_model = joblib.load(os.path.join(MODEL_DIR, 'tfidf.pkl'))
+nbrs_model = joblib.load(os.path.join(MODEL_DIR, 'nearest_neighbor.pkl'))
 
 # distance function
 def country_distance(affil_1, affil_2):
@@ -91,7 +101,7 @@ def match_affil(affil_text):
     Match affiliation string to GRID dataset
     the return GRID identification number
     """
-    grid_dict = list(csv.DictReader(open('data/grid.csv', 'r')))
+    grid_dict = list(csv.DictReader(open(os.path.join(DATA_DIR, 'grid.csv'), 'r')))
     dict_affil = parse_affil(affil_text)
     institution = preprocess(dict_affil['institution'])
     country = preprocess(dict_affil['country'])
