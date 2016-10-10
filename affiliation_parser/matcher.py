@@ -3,6 +3,7 @@ import re
 import csv
 import subprocess
 from collections import namedtuple
+from nltk.metrics.distance import jaccard_distance
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
