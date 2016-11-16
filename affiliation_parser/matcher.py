@@ -54,6 +54,7 @@ def train_grid():
 
 # train nearest neighbor model for GRID dataset
 train_grid()
+print("use trained model from %s" % REPO_DIR)
 tfidf_model = joblib.load(os.path.join(MODEL_DIR, 'tfidf.pkl'))
 nbrs_model = joblib.load(os.path.join(MODEL_DIR, 'nearest_neighbor.pkl'))
 
