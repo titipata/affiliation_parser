@@ -115,7 +115,7 @@ def match_affil(affil_text):
     if distance <= 0.1:
         matched = True
     else:
-        dist = affiliation_check(grid_data[i], affil)
+        dist = affiliation_check(grid_dict[i], affil)
         matched = True if dist == 0 else False
 
     if matched:
