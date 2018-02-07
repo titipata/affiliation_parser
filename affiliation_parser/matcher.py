@@ -3,6 +3,7 @@ import re
 import csv
 import subprocess
 from collections import namedtuple
+from nltk.tokenize import WhitespaceTokenizer
 from nltk.metrics.distance import jaccard_distance
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -11,10 +12,11 @@ from sklearn.externals import joblib
 
 from .parse import parse_affil, preprocess
 
-Affiliation = namedtuple('Affiliation', ['name', 'country'])
 REPO_DIR = os.path.join(os.path.expanduser('~'), 'affiliation_parser_data')
 DATA_DIR = os.path.join(REPO_DIR, 'data')
 MODEL_DIR = os.path.join(REPO_DIR, 'model')
+
+w_tokenizer = WhitespaceTokenizer()
 
 def download_grid():
     """Download GRID dataset from S3 (last update: September 2016)"""
@@ -61,23 +63,23 @@ nbrs_model = joblib.load(os.path.join(MODEL_DIR, 'nearest_neighbor.pkl'))
 # distance function
 def country_distance(affil_1, affil_2):
     """"""
-    if affil_1.country == affil_2.country or affil_1.country == '' or affil_2.country == '':
+    if affil_1['Country'] == affil_2['Country'] or affil_1['Country'] == '' or affil_2['Country'] == '':
         return 0
     else:
         return 1
 
 def unigram_distance(affil_1, affil_2):
     """Unigram distance between two affiliation tuple"""
-    affil_set_1 = set(w_tokenizer.tokenize(affil_1.name))
-    affil_set_2 = set(w_tokenizer.tokenize(affil_2.name))
+    affil_set_1 = set(w_tokenizer.tokenize(affil_1['Name']))
+    affil_set_2 = set(w_tokenizer.tokenize(affil_2['Name']))
     overlap_len = len(affil_set_1.intersection(affil_set_2))
     dist = min(abs(len(affil_set_1) - overlap_len), abs(len(affil_set_2) - overlap_len))
     return dist
 
 def jaccard_unigram_distance(affil_1, affil_2):
     """Unigram distance between two strings"""
-    affil_set_1 = set(w_tokenizer.tokenize(affil_1.name))
-    affil_set_2 = set(w_tokenizer.tokenize(affil_2.name))
+    affil_set_1 = set(w_tokenizer.tokenize(affil_1['Name']))
+    affil_set_2 = set(w_tokenizer.tokenize(affil_2['Name']))
     return jaccard_distance(affil_set_1, affil_set_2)
 
 def affiliation_check(affil_1, affil_2):
@@ -85,12 +87,12 @@ def affiliation_check(affil_1, affil_2):
     Function to quickly check if both strings are the same
     if return 0 means both string are the same
     """
-    if country_distance(affil_1, affil_2) == 0 and len(affil_2.name.split(" ")) >= 2:
+    if country_distance(affil_1, affil_2) == 0 and len(affil_2['Name'].split(" ")) >= 2:
         if unigram_distance(affil_1, affil_2) <= 1:
             dist = 0
         elif jaccard_unigram_distance(affil_1, affil_2) >= 0.75:
             dist = 0
-        elif affil_1.name in affil_2.name or affil_2.name in affil_1.name:
+        elif affil_1['Name'] in affil_2['Name'] or affil_2['Name'] in affil_1['Name']:
             dist = 0
         else:
             dist = 1
@@ -107,7 +109,7 @@ def match_affil(affil_text):
     dict_affil = parse_affil(affil_text)
     institution = preprocess(dict_affil['institution'])
     country = preprocess(dict_affil['country'])
-    affil = Affiliation(institution, country)
+    affil = {'Name': institution, 'Country': country}
     tfidf_feature = tfidf_model.transform([institution + ' ' + country])
     distance, index = nbrs_model.kneighbors(tfidf_feature)
     i = index.ravel()[0]
