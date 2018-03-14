@@ -41,16 +41,17 @@ def clean_text(affil_text):
     """
     Given affiliation text with abbreviation, clean that text
     """
+    affil_text = affil_text.strip()
+    affil_text = re.sub('\t', ' ', affil_text)
     affil_text = re.sub('Dept. ', 'Department ', affil_text)
     affil_text = re.sub('Surg. ', 'Sugery ', affil_text)
     affil_text = re.sub('Univ. ', 'University ', affil_text)
-    affil_text = re.sub('2 ', ' ', affil_text)
-    affil_text = re.sub('2. ', ' ', affil_text)
+    affil_text = affil_text[2:] if affil_text.startswith('2 ') else affil_text
+    affil_text = affil_text[3:] if affil_text.startswith('2. ') else affil_text
     affil_text = re.sub('\*', ' ', affil_text)
     affil_text = re.sub(';', '', affil_text)
     affil_text = re.sub('E-mail:', '', affil_text)
     affil_text = re.sub('email:', '', affil_text)
-    affil_text = re.sub('\t', ' ', affil_text)
     affil_text = re.sub('P.O. Box', '', affil_text)
     affil_text = replace_institution_abbr(affil_text)
     return affil_text.strip()
