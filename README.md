@@ -32,17 +32,22 @@ Here is an example to match affiliation to [GRID](https://grid.ac/) dataset.
 
 ```python
 from affiliation_parser import match_affil
-match_affil("Department of Health Science, Kochi Women's University, Kochi 780-8515, Japan. watanabe@cc.kochi-wu.ac.jp")
+match_affil("Department of Physics, Chulalongkorn University, Thailand")
 ```
 
-Output is a dictionary consist of GRID ID
+Output is list of dictionary consist of GRID ID and `score`
 
 ```python
-{'City': 'Kochi',
- 'Country': 'Japan',
- 'ID': 'grid.444150.0',
- 'Name': "Kochi Women's University",
- 'State': ''}
+[{
+    'score': 0.783,
+    'index': 515,
+    'grid_id': 'grid.7922.e',
+    'institution': 'Chulalongkorn University',
+    'city': 'Bangkok',
+    'state': nan,
+    'country': 'Thailand'},
+    ...
+}]
 ```
 
 ## Dependencies
@@ -60,10 +65,8 @@ folder to your workspace.
 
 ```bash
 git clone https://github.com/titipata/affiliation_parser
-```
-
-``` bash
-python setup.py install
+cd affiliation_parser
+pip install .
 ```
 
 ## Example results from MEDLINE database
