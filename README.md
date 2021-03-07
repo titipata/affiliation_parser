@@ -7,7 +7,6 @@ affiliation, location, country, email and zip code from affiliation text.
 We also provide function to match affiliation  string to [GRID](https://grid.ac/)
 dataset.
 
-
 ## Example
 
 Here is an example to parse affiliation
@@ -46,7 +45,6 @@ Output is a dictionary consist of GRID ID
  'State': ''}
 ```
 
-
 ## Dependencies
 
 - [unidecode](https://pypi.python.org/pypi/Unidecode)
@@ -55,18 +53,17 @@ Output is a dictionary consist of GRID ID
 
 use `pip install -r requirements.txt` in order to install required packages
 
-
 ## Installation
 
 Clone the repository and install using `setup.py` or simple copy `affiliation_parser`
 folder to your workspace.
 
 ```bash
-$ git clone https://github.com/titipata/affiliation_parser
+git clone https://github.com/titipata/affiliation_parser
 ```
 
-```bash
-$ python setup.py install
+``` bash
+python setup.py install
 ```
 
 ## Example results from MEDLINE database

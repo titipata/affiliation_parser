@@ -58,7 +58,7 @@ def clean_text(affil_text: str):
     affil_text = re.sub("Univ. ", "University ", affil_text)
     affil_text = affil_text[2:] if affil_text.startswith("2 ") else affil_text
     affil_text = affil_text[3:] if affil_text.startswith("2. ") else affil_text
-    affil_text = re.sub("\*", " ", affil_text)
+    affil_text = re.sub(r"\*", " ", affil_text)
     affil_text = re.sub(";", "", affil_text)
     affil_text = re.sub("E-mail:", "", affil_text)
     affil_text = re.sub("email:", "", affil_text)
@@ -109,9 +109,9 @@ def parse_zipcode(affil_text: str):
     Parse zip code from given affiliation text
     """
     zip_code_group = ""
-    zip_code = re.search("(\d{5})([-])?(\d{4})?", affil_text)
+    zip_code = re.search(r"(\d{5})([-])?(\d{4})?", affil_text)
     if zip_code is None:
-        zip_code = re.search("(\d{3})([-])?(\d{4})?", affil_text)
+        zip_code = re.search(r"(\d{3})([-])?(\d{4})?", affil_text)
     else:
         zip_code = ""
     if zip_code is not None:
@@ -125,7 +125,7 @@ def parse_location(location):
     """
     Parse location and country from affiliation string
     """
-    location = re.sub("\.", "", location).strip()
+    location = re.sub(r"\.", "", location).strip()
     country = find_country(location)
     dict_location = {"location": location.strip(), "country": country.strip()}
     return dict_location
