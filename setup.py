@@ -14,6 +14,6 @@ if __name__ == "__main__":
         author_email='titipata@u.northwestern.edu',
         license='(c) 2015 Titipat Achakulvisut',
         keywords='parser affilation',
-        install_requires=['numpy', 'unidecode'],
+        install_requires=['numpy', 'unidecode', 'nltk'],
         packages=['affiliation_parser'],
     )
