@@ -29,7 +29,7 @@ def match_affil(affiliation: str, k: int = 3):
     Return a da
     """
     parsed_affil = parse_affil(affiliation)
-    df = pd.Dataframe([parsed_affil])
+    df = pd.DataFrame([parsed_affil])
 
     indexer = recordlinkage.Index()
     indexer.add(Full())
