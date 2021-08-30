@@ -12,10 +12,10 @@ def download_grid_data(
 ):
     """
     Download GRID data from https://grid.ac/downloads
-    to "~/.affiliation_parser/grid"
+    to home directory "~/.affiliation_parser/grid"
     """
-    path = Path(os.getenv("~", '~/.affliation_parser')).expanduser()
-    grid_path = (path/"grid")
+    path = Path(os.getenv("~", "~/.affliation_parser")).expanduser()
+    grid_path = path / f"{file_name}"
     if not grid_path.exists():
         grid_path.mkdir(parents=True, exist_ok=True)
         # download from url
