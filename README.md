@@ -4,7 +4,7 @@ Fast and simple parser for MEDLINE and Pubmed Open-Access affiliation string.
 We can parse multiple fields from the affiliation string including department,
 affiliation, location, country, email and zip code from affiliation text.
 
-We also provide function to match affiliation  string to [GRID](https://grid.ac/)
+We also provide function to match affiliation string to [GRID](https://grid.ac/)
 dataset.
 
 ## Example
@@ -32,10 +32,14 @@ Here is an example to match affiliation to [GRID](https://grid.ac/) dataset.
 
 ```python
 from affiliation_parser import match_affil
-match_affil("Department of Physics, Chulalongkorn University, Thailand")
+match_affil("Department of Physics, Chulalongkorn University, Thailand")  # string
+match_affil([
+    "Department of Physics, Chulalongkorn University, Thailand",
+    "Department of Physics, Mahidol University, Thailand"
+])  # or list of string
 ```
 
-Output is list of dictionary consist of GRID ID and `score`
+Output is list (or a list of list) of dictionary consist of GRID ID and matching `score`
 
 ```python
 [{
