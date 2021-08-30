@@ -17,6 +17,7 @@ def download_grid_data(
     path = Path(os.getenv("~", "~/.affliation_parser")).expanduser()
     grid_path = path / f"{file_name}"
     if not grid_path.exists():
+        print(f"Downloading GRID dataset to {grid_path}.")
         grid_path.mkdir(parents=True, exist_ok=True)
         # download from url
         r = requests.get(url)
