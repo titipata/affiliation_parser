@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 def download_grid_data(
-    url: str = "https://ndownloader.figshare.com/files/25791104",
+    url: str = "https://figshare.com/ndownloader/files/30589659",
     file_name: str = "grid",
 ):
     """
