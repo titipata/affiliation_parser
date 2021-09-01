@@ -8,8 +8,7 @@ import recordlinkage
 from recordlinkage.index import Full
 
 from .utils import download_grid_data
-from .parse import parse_affil, preprocess
-
+from .parse import parse_affil
 
 path = Path(os.getenv("~", "~/.affliation_parser")).expanduser()
 grid_path = path / "grid"
@@ -20,7 +19,8 @@ grid_df = pd.read_csv(
     header=0,
     names=["grid_id", "institution", "city", "state", "country"],
 )
-grid_df["location"] = grid_df.city + " " + grid_df.state  # adding location column
+grid_df[
+    "location"] = grid_df.city + " " + grid_df.state  # adding location column
 
 
 def match_affil(affiliation: Optional[Union[str, list]], k: int = 3):
@@ -56,34 +56,33 @@ def match_affil(affiliation: Optional[Union[str, list]], k: int = 3):
     compare.string("country", "country", method="jarowinkler")
 
     features_df = compare.compute(candidate_links, df, grid_df)
-    features_df["score"] = np.average(features_df, axis=1, weights=[0.6, 0.2, 0.2])
+    features_df["score"] = np.average(features_df,
+                                      axis=1,
+                                      weights=[0.6, 0.2, 0.2])
 
     if isinstance(affiliation, str):
         # return a list of top-k closest match
-        topk_df = (
-            features_df[["score"]]
-            .reset_index()
-            .sort_values("score", ascending=False)
-            .head(k)
-        )
-        topk_df = topk_df.merge(
-            grid_df.reset_index(), left_on="level_1", right_on="index"
-        ).drop(labels=["level_0", "level_1", "location"], axis=1)
+        topk_df = (features_df[["score"]].reset_index().sort_values(
+            "score", ascending=False).head(k))
+        topk_df = topk_df.merge(grid_df.reset_index(),
+                                left_on="level_1",
+                                right_on="index").drop(
+                                    labels=["level_0", "level_1", "location"],
+                                    axis=1)
         return topk_df.to_dict(orient="records")
 
     elif isinstance(affiliation, list):
         # return a list of list of top-k closest match
         topk_list = []
         for _, topk_df in features_df.reset_index().groupby("level_0"):
-            topk_df = (
-                features_df[["score"]]
-                .reset_index()
-                .sort_values("score", ascending=False)
-                .head(k)
-            )
-            topk_df = topk_df.merge(
-                grid_df.reset_index(), left_on="level_1", right_on="index"
-            ).drop(labels=["level_0", "level_1", "location"], axis=1)
+            topk_df = (features_df[["score"]].reset_index().sort_values(
+                "score", ascending=False).head(k))
+            topk_df = topk_df.merge(grid_df.reset_index(),
+                                    left_on="level_1",
+                                    right_on="index").drop(labels=[
+                                        "level_0", "level_1", "location"
+                                    ],
+                                                           axis=1)
             topk_list.append(topk_df.to_dict(orient="records"))
         return topk_list
     else:
