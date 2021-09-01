@@ -3,23 +3,6 @@ import string
 from unidecode import unidecode
 import numpy as np
 from .keywords import *
-from nltk.tokenize import WhitespaceTokenizer
-
-w_tokenizer = WhitespaceTokenizer()
-punct_re = re.compile("[{}]".format(re.escape(string.punctuation)))
-
-
-def preprocess(text: str):
-    """
-    Function to perform word tokenization
-    """
-    if isinstance(text, (type(None), float)):
-        text_preprocess = ""
-    else:
-        text = unidecode(text).lower()
-        text = punct_re.sub(" ", text)  # remove punctuation
-        text_preprocess = " ".join(w_tokenizer.tokenize(text))
-    return text_preprocess
 
 
 def replace_institution_abbr(affil_text: str):
@@ -151,7 +134,7 @@ def parse_affil(affil_text):
         for ins in INSTITUTE:
             if ins in a.lower() and (not a in affil):
                 affil.append(a)
-                location = affil_list[i + 1 : :]
+                location = affil_list[i + 1::]
 
     # remove unwanted from affliation list and location list
     pop_index = list()
