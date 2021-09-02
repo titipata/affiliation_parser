@@ -97,7 +97,7 @@ def parse_zipcode(affil_text: str):
         zip_code = re.search(r"(\d{3})([-])?(\d{4})?", affil_text)
     else:
         zip_code = ""
-    if zip_code is not None:
+    if zip_code:
         zip_code_group = zip_code.groups()
         zip_code_group = [p for p in zip_code_group if p is not None]
         zip_code_group = "".join(zip_code_group)
