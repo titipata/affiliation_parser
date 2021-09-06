@@ -1,4 +1,3 @@
 unidecode
-nltk
 numpy
 recordlinkage
