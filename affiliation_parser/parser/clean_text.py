@@ -1,6 +1,6 @@
 import re
 
-from ..data import UNIVERSITY_ABBR
+# from ..data import UNIVERSITY_ABBR
 
 
 def replace_institution_abbr(affil_text: str):

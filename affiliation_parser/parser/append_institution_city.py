@@ -1,4 +1,4 @@
-from ..data import UNIVERSITY_MULTIPLE_CAMPUS
+# from ..data import UNIVERSITY_MULTIPLE_CAMPUS
 
 
 def append_institution_city(affil: str, location: str):
