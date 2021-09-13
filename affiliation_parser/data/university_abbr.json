@@ -1,0 +1,34 @@
+{
+    "university of california los angeles": [
+        "UCLA",
+        "UC Los Angeles"
+    ],
+    "university of california san diego": [
+        "UCSD",
+        "UC San Diego"
+    ],
+    "california institute of technology": [
+        "caltech"
+    ],
+    "city college of new york": [
+        "CCNY"
+    ],
+    "carnegie mellon university": [
+        "CMU"
+    ],
+    "georgia institute of technology": [
+        "georgia tech"
+    ],
+    "pennsylvania state university": [
+        "penn state"
+    ],
+    "university of massachusetts amherst": [
+        "UMass"
+    ],
+    "city university of new york": [
+        " cuny"
+    ],
+    "havard university school of": [
+        "harvard school of"
+    ]
+}

@@ -3,11 +3,14 @@ import os
 
 _root = os.path.dirname(os.path.realpath(__file__))
 
-with open(os.path.join(_root, 'department.json')) as f:
-    DEPARMENT = json.load(f)
+with open(os.path.join(_root, 'university_abbr.json')) as f:
+    UNIVERSITY_ABBR = json.load(f)
 
-with open(os.path.join(_root, 'institution.json')) as f:
-    INSTITUTE = json.load(f)
+# with open(os.path.join(_root, 'department.json')) as f:
+#     DEPARMENT = json.load(f)
+
+# with open(os.path.join(_root, 'institution.json')) as f:
+#     INSTITUTE = json.load(f)
 
 # # keyword list
 
@@ -299,20 +302,6 @@ with open(os.path.join(_root, 'institution.json')) as f:
 #     " WY",
 #     " DC",
 # ])
-
-# # full name and abbreviation
-# UNIVERSITY_ABBR = (
-#     ("university of california los angeles", "UCLA", "UC Los Angeles"),
-#     ("university of california san diego", "UCSD", "UC San Diego"),
-#     ("california institute of technology", "caltech"),
-#     ("city college of new york", "CCNY"),
-#     ("carnegie mellon university", "CMU"),
-#     ("georgia institute of technology", "georgia tech"),
-#     ("pennsylvania state university", "penn state"),
-#     ("university of massachusetts amherst", "UMass"),
-#     ("city university of new york", " cuny"),
-#     ("havard university school of", "harvard school of"),
-# )
 
 # # use to concat university with string
 # UNIVERSITY_MULTIPLE_CAMPUS = (

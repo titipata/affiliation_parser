@@ -10,6 +10,9 @@ def parse_email(affil_text: str):
     
     a simple re from http://emailregex.com/
     """
+
+    affil_text = affil_text.split(' ')[-1]
+
     match = re.search(r"([a-zA-Z0-9.+_-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)",
                       affil_text)
     if match is not None:
@@ -18,4 +21,5 @@ def parse_email(affil_text: str):
             email = email[:-1]
     else:
         email = ""
+
     return email
