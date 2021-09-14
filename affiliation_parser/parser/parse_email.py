@@ -11,14 +11,14 @@ def parse_email(affil_text: str):
     a simple re from http://emailregex.com/
     """
 
-    affil_text = affil_text.split(' ')[-1]
+    texts = affil_text.split(' ')[-1]
 
     match = re.search(r"([a-zA-Z0-9.+_-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)",
-                      affil_text)
+                      texts[-1])
     if match is not None:
         email = match.group()
-        if email[-1] == ".":
-            email = email[:-1]
+        email.rstrip('.')
+
     else:
         email = ""
 

@@ -14,10 +14,11 @@ def parse_affil(affil_text):
     affil_text = clean_text(affil_text)
 
     # affil_text = replace_institution_abbr(affil_text)
-    # email = parse_email(affil_text)
-    # zip_code = parse_zipcode(affil_text)
-    # affil_text = re.sub(email, "", affil_text)
-    # affil_text = re.sub(zip_code, "", affil_text)
+    email = parse_email(affil_text)
+    affil_text = re.sub(email, "", affil_text)
+
+    zip_code = parse_zipcode(affil_text)
+    affil_text = re.sub(zip_code, "", affil_text)
 
     # affil_list = affil_text.split(", ")
     # affil = list()
